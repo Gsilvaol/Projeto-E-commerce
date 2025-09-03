@@ -1,5 +1,6 @@
 "use client";
 import ProdutoItem from "@/components/produto/ProdutoItem";
+import { Produto } from "@gstore/core";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -14,9 +15,9 @@ export default function Home() {
 
   return (
     <div>
-      {produtos.map((produto: any) => {
+      {produtos.map((produto: Produto) => {
         return (
-          <ProdutoItem produto={produto}/>
+          <ProdutoItem produto={produto} key={produto.id}/>
         );
       })}
     </div>
