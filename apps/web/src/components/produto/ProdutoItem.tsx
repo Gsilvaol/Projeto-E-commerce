@@ -2,11 +2,14 @@ import { Produto, Moeda } from "@gstore/core";
 import { IconShoppingCart } from "@tabler/icons-react";
 import Image from "next/image";
 import NotaReview from "../shared/NotaReview";
+import useParcelamento from "@/data/hooks/useParcelamento";
 interface ProdutoItemProps {
   produto: Produto;
 }
 
 export default function ProdutoItem({ produto }: ProdutoItemProps) {
+  const parcelamento = useParcelamento(produto.precoBase);
+
   return (
     <div
       className={`
@@ -14,7 +17,7 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
   `}
     >
       <div className="absolute flex justify-end top-2.5 right-2">
-        <NotaReview nota={produto.nota}/> 
+        <NotaReview nota={produto.nota} />
       </div>
       <div className="w-full h-48 relative">
         <Image
@@ -38,7 +41,8 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
             por {Moeda.formatar(produto.precoPromocional)}
           </span>
           <span className="text-zinc-400 text-xs">
-            até 12x de {Moeda.formatar(+(produto.precoBase / 12).toFixed(2))}
+            até {parcelamento.qtdeParcelas}x de{""} 
+            {Moeda.formatar(parcelamento.valorParcela)}
           </span>
         </div>
         <button
