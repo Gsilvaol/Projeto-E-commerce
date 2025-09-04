@@ -1,7 +1,7 @@
 import { Produto } from "@gstore/core";
 import { IconShoppingCart } from "@tabler/icons-react";
 import Image from "next/image";
-
+import NotaReview from "../shared/NotaReview";
 interface ProdutoItemProps {
   produto: Produto;
 }
@@ -14,7 +14,7 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
   `}
     >
       <div className="absolute flex justify-end top-2.5 right-2">
-        {produto.nota}
+        <NotaReview nota={produto.nota}/> 
       </div>
       <div className="w-full h-48 relative">
         <Image
