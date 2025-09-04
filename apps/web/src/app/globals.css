@@ -5,6 +5,10 @@
   --foreground: #171717;
 }
 
+@theme {
+  --color-violet-dark: #0e001d
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
