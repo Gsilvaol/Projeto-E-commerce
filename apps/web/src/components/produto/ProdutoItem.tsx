@@ -1,4 +1,4 @@
-import { Produto } from "@gstore/core";
+import { Produto, Moeda } from "@gstore/core";
 import { IconShoppingCart } from "@tabler/icons-react";
 import Image from "next/image";
 import NotaReview from "../shared/NotaReview";
@@ -32,13 +32,13 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
         <div className="flex-1"></div>
         <div className="flex flex-col">
           <span className="text-sm text-gray-400 line-through">
-            de {produto.precoBase}
+            de {Moeda.formatar(produto.precoBase)}
           </span>
           <span className="text-xl font-semibold text-emerald-400">
-            por {produto.precoPromocional}
+            por {Moeda.formatar(produto.precoPromocional)}
           </span>
           <span className="text-zinc-400 text-xs">
-            até 12x de {(produto.precoBase / 12).toFixed(2)}
+            até 12x de {Moeda.formatar(+(produto.precoBase / 12).toFixed(2))}
           </span>
         </div>
         <button
