@@ -1,4 +1,5 @@
 import Cabecalho from "./Cabecalho"
+import Rodape from "./Rodape"
 
 interface PaginaProps{
     children:any
@@ -17,6 +18,7 @@ export default function Pagina({children, className}:PaginaProps){
                 <main className={`flex-1 flex flex-col ${className ?? ''}`}>
                     {children}
                 </main>
+                <Rodape />
             </div>
         </div>
     )
