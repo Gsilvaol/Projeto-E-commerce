@@ -1,5 +1,5 @@
 import { Produto, Moeda } from "@gstore/core";
-import { IconShoppingCart } from "@tabler/icons-react";
+import { IconShoppingCartPlus } from "@tabler/icons-react";
 import Image from "next/image";
 import NotaReview from "../shared/NotaReview";
 import useParcelamento from "@/data/hooks/useParcelamento";
@@ -13,7 +13,7 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
   return (
     <div
       className={`
-    flex flex-col bg-violet-dark border-white/10 rounded-xl relative max-w-[350px]
+    flex flex-col bg-violet-dark rounded-xl relative max-w-[350px] border  border-white/10
   `}
     >
       <div className="absolute flex justify-end top-2.5 right-2">
@@ -50,7 +50,7 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
             h-8 bg-violet-600 hover:border-2
            border-emerald-500 rounded-full`}
         >
-          <IconShoppingCart size={20} />
+          <IconShoppingCartPlus size={20} />
           <span>Adicionar</span>
         </button>
       </div>
