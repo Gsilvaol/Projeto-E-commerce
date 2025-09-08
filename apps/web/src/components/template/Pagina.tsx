@@ -1,3 +1,5 @@
+import Cabecalho from "./Cabecalho"
+
 interface PaginaProps{
     children:any
     className?:string
@@ -11,6 +13,7 @@ export default function Pagina({children, className}:PaginaProps){
             <div className="flex-1 flex flex-col w-full"
             style={{background:'url("/background.png")'}}
             >
+                <Cabecalho />
                 <main className={`flex-1 flex flex-col ${className ?? ''}`}>
                     {children}
                 </main>
