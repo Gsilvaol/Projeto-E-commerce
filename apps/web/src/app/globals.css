@@ -29,7 +29,7 @@ body {
   font-family: var(--font-monoserrat), Arial, Helvetica, sans-serif;
 }
 
-@layer components {
+@layer utilities {
   .container{
     @apply max-w-7xl mx-auto px-10
   }
