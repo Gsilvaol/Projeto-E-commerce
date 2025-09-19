@@ -6,13 +6,12 @@ import ProdutoNaoEncontrado from "./ProdutoNaoEncontrado";
 
 export default function ListaProdutos() {
   const [produtos, setProdutos] = useState([]);
-
   useEffect(() => {
     const urlBase = process.env.NEXT_PUBLIC_API_URL;
     fetch(`${urlBase}/produtos`)
       .then((dados) => dados.json())
       .then((dados) => setProdutos(dados));
-  });
+  }, []);
 
   if (produtos.length === 0) {
     return <ProdutoNaoEncontrado />;

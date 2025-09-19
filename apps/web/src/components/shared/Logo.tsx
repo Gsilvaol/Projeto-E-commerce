@@ -1,12 +1,30 @@
-import Image from "next/image";
+"use client"
+
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Logo() {
-    return(
-        <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" height={60} width={60} alt="logo da loja" />
-            <Image src="/logo-texto.png" height={0} width={230} alt="Gam3r.Store" />
-        </Link>
-    )
-}
+  return (
+    <Link href="/" className="flex items-center gap-3">
+      {/* Logo principal */}
+      <div className="relative w-[60px] h-[60px]">
+        <Image
+          src="/logo.png"
+          alt="logo da loja"
+          fill
+          style={{ objectFit: "contain" }}
+        />
+      </div>
 
+      {/* Logo com texto */}
+      <div className="relative w-[230px] h-[60px]">
+        <Image
+          src="/logo-texto.png"
+          alt="Gam3r.Store"
+          fill
+          style={{ objectFit: "contain" }}
+        />
+      </div>
+    </Link>
+  );
+}

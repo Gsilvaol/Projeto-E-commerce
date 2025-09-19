@@ -3,6 +3,7 @@ import { IconShoppingCartPlus } from "@tabler/icons-react";
 import Image from "next/image";
 import NotaReview from "../shared/NotaReview";
 import useParcelamento from "@/data/hooks/useParcelamento";
+import Link from "next/link";
 interface ProdutoItemProps {
   produto: Produto;
 }
@@ -11,7 +12,8 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
   const parcelamento = useParcelamento(produto.precoBase);
 
   return (
-    <div
+    <Link
+      href={`/produtos/${produto.id}`}
       className={`
     flex flex-col bg-violet-dark rounded-xl relative max-w-[350px] border  border-white/10
   `}
@@ -41,7 +43,7 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
             por {Moeda.formatar(produto.precoPromocional)}
           </span>
           <span className="text-zinc-400 text-xs">
-            até {parcelamento.qtdeParcelas}x de{""} 
+            até {parcelamento.qtdeParcelas}x de{""}
             {Moeda.formatar(parcelamento.valorParcela)}
           </span>
         </div>
@@ -54,6 +56,6 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
           <span>Adicionar</span>
         </button>
       </div>
-    </div>
+    </Link>
   );
 }
