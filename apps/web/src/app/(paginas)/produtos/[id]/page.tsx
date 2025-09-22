@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, use } from "react";
 import TituloProduto from "@/components/produto/TituloProduto";
+import InformacoesProduto from "@/components/produto/InformacoesProduto";
 
 export default function PaginaProduto(props: any) {
   const { id }: { id: string } = use(props.params);
@@ -17,6 +18,7 @@ export default function PaginaProduto(props: any) {
     <div className="flex flex-col gap-20 container py-10 ">
       <div className="flex flex-col gap-10">
         <TituloProduto produto={produto} />
+        <InformacoesProduto produto={produto} />
       </div>
     </div>
   ) : (
