@@ -6,7 +6,7 @@
 }
 
 @theme {
-  --color-violet-dark: #0e001d
+  --color-violet-dark: #0e001d;
 }
 
 @theme inline {
@@ -30,7 +30,15 @@ body {
 }
 
 @layer utilities {
-  .container{
-    @apply max-w-7xl mx-auto px-10
+  .container {
+    @apply max-w-7xl mx-auto px-10;
+  }
+}
+
+@layer components {
+  .botao {
+    @apply flex justify-center items-center;
+    @apply gap-2 rounded-full px-9 h-9;
+    @apply text-sm font-semibold;
   }
 }

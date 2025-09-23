@@ -2,6 +2,7 @@
 import { useEffect, useState, use } from "react";
 import TituloProduto from "@/components/produto/TituloProduto";
 import InformacoesProduto from "@/components/produto/InformacoesProduto";
+import BannerCompra from "@/components/produto/BannerCompra";
 
 export default function PaginaProduto(props: any) {
   const { id }: { id: string } = use(props.params);
@@ -19,6 +20,7 @@ export default function PaginaProduto(props: any) {
       <div className="flex flex-col gap-10">
         <TituloProduto produto={produto} />
         <InformacoesProduto produto={produto} />
+        <BannerCompra produto={produto} />
       </div>
     </div>
   ) : (
