@@ -4,6 +4,7 @@ import TituloProduto from "@/components/produto/TituloProduto";
 import InformacoesProduto from "@/components/produto/InformacoesProduto";
 import BannerCompra from "@/components/produto/BannerCompra";
 import MedidorDePreco from "@/components/produto/MedidorDePreco";
+import AvaliacoesUsuarios from "@/components/produto/AvaliacoesUsuarios";
 
 export default function PaginaProduto(props: any) {
   const { id }: { id: string } = use(props.params);
@@ -24,6 +25,7 @@ export default function PaginaProduto(props: any) {
         <BannerCompra produto={produto} />
         <MedidorDePreco produto={produto} />
       </div>
+      <AvaliacoesUsuarios produto={produto} />
     </div>
   ) : (
     <></>
