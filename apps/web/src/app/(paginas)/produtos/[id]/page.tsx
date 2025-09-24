@@ -6,6 +6,7 @@ import BannerCompra from "@/components/produto/BannerCompra";
 import MedidorDePreco from "@/components/produto/MedidorDePreco";
 import AvaliacoesUsuarios from "@/components/produto/AvaliacoesUsuarios";
 import AvaliacaoEspecializada from "@/components/produto/AvaliacaoEspecializada";
+import ProdutoNaoEncontrado from "@/components/produto/ProdutoNaoEncontrado";
 
 export default function PaginaProduto(props: any) {
   const { id }: { id: string } = use(props.params);
@@ -30,6 +31,6 @@ export default function PaginaProduto(props: any) {
       <AvaliacaoEspecializada produto={produto} />
     </div>
   ) : (
-    <></>
+    <ProdutoNaoEncontrado botaoVoltar />
   );
 }
