@@ -28,3 +28,25 @@ model Produto {
 
   @@map("produtos")
 }
+
+model Usuario {
+  id         Int       @id @default(autoincrement())
+  nome       String
+  email      String    @unique
+  senha      String
+  cpf        String?   @unique
+  enderecoId Int?      @unique
+  endereco   Endereco? @relation(fields: [enderecoId], references: [id])
+}
+
+model Endereco {
+  id          Int    @id @default(autoincrement())
+  logradouro  String
+  numero      Int
+  complemento String
+  bairro      String
+  cidade      String
+  estado      String
+
+  usuario Usuario?
+}
