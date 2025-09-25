@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LogarDto } from './dto/logar.dto';
 import { CadastrarDto } from './dto/cadastrar.dto';
@@ -17,5 +17,10 @@ export class AuthController {
     return this.authService.cadastro(cadastrarDto);
   }
 
+  @Get("teste")
+    pegarTodos(){
+      return this.authService.pegar()
+    }
+  
  
 }

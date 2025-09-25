@@ -1,7 +1,9 @@
 @baseUrl = http://localhost:4000
 
-### Cadastro
+### Pegar usuários
+GET {{baseUrl}}/teste
 
+### Cadastro
 POST {{baseUrl}}/cadastro
 Content-Type: application/json
 
