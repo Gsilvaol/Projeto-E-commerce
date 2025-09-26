@@ -1,4 +1,4 @@
-import { Produto } from '@gstore/core';
+import { InfoCadastro, Produto } from '@gstore/core';
 import { Injectable } from '@nestjs/common';
 import { PrismaProvider } from 'src/db/prisma.provider';
 
@@ -6,13 +6,9 @@ import { PrismaProvider } from 'src/db/prisma.provider';
 export class AuthPrisma {
   constructor(readonly prisma: PrismaProvider) {}
 
-  async salvar(nome: string, email: string, senha: string) {
+  async salvar(infoCadastro:InfoCadastro) {
     const usuario = await this.prisma.usuario.create({
-      data: {
-        nome,
-        email,
-        senha,
-      },
+      data: infoCadastro
     });
     return usuario;
   }

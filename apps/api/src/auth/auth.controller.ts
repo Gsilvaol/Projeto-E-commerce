@@ -1,26 +1,23 @@
 import { Controller, Post, Body, Get } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LogarDto } from './dto/logar.dto';
-import { CadastrarDto } from './dto/cadastrar.dto';
+import * as core from '@gstore/core';
 
 @Controller()
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post("login")
-  login(@Body() logarDto: LogarDto) {
-    return this.authService.login(logarDto);
+  @Post('login')
+  login(@Body() infoLogin: core.InfoLogin) {
+    return this.authService.login(infoLogin);
   }
 
-  @Post("cadastro")
-  cadastro(@Body() cadastrarDto: CadastrarDto) {
-    return this.authService.cadastro(cadastrarDto);
+  @Post('cadastro')
+  cadastro(@Body() infoCadastro: core.InfoCadastro) {
+    return this.authService.cadastro(infoCadastro);
   }
 
-  @Get("teste")
-    pegarTodos(){
-      return this.authService.pegar()
-    }
-  
- 
+  @Get('teste')
+  pegarTodos() {
+    return this.authService.pegar();
+  }
 }

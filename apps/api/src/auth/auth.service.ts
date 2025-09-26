@@ -1,32 +1,36 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { LogarDto } from './dto/logar.dto';
-import { CadastrarDto } from './dto/cadastrar.dto';
 import { hash } from 'bcrypt';
 import { AuthPrisma } from './auth.prisma';
 import { ValidarDadosCadastro } from '@gstore/core';
+import { InfoLogin, InfoCadastro } from '@gstore/core';
 
 @Injectable()
 export class AuthService {
   constructor(private readonly authPrisma: AuthPrisma) {}
-  async cadastro(cadastrarDto: CadastrarDto) {
-    const {nome, email, senha} = ValidarDadosCadastro(cadastrarDto)
+  async cadastro(infoCadastro: InfoCadastro) {
+    const { nome, email, senha } = ValidarDadosCadastro(infoCadastro);
 
-    const usuarioExiste = await this.authPrisma.usuarioExiste(email
-    )
+    const usuarioExiste = await this.authPrisma.usuarioExiste(email);
 
-    if (usuarioExiste){
-      throw new BadRequestException("Usuário já cadastrado")
+    if (usuarioExiste) {
+      throw new BadRequestException('Usuário já cadastrado');
     }
 
     const senhaHash = await hash(senha, 5);
-    return this.authPrisma.salvar(nome, email, senhaHash);
+    await this.authPrisma.salvar({
+      nome,
+      email,
+      senha: senhaHash,
+    });
+
+    return {mensagem: "Usuário criado com sucesso"}
   }
 
-  async pegar(){
-    return this.authPrisma.pegarTodos()
+  async pegar() {
+    return this.authPrisma.pegarTodos();
   }
 
-  login(logarDto: LogarDto) {
+  login(infoLogin: InfoLogin) {
     return `Essa é a função de logar um usuário`;
   }
 }
