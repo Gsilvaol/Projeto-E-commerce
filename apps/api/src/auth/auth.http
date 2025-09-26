@@ -19,7 +19,6 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "nome":"gustavo",
     "email":"g@mail.com",
     "senha":"123456"
 }
