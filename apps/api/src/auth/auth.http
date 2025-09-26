@@ -8,8 +8,8 @@ POST {{baseUrl}}/cadastro
 Content-Type: application/json
 
 {
-    "nome":"Gustavo",
-    "email":"g@mail.com",
+    "nome":"gustavo",
+    "email":"gustavo132@mail.com",
     "senha":"123456"
 }
 
@@ -19,7 +19,7 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "nome":"Gustavo",
+    "nome":"gustavo",
     "email":"g@mail.com",
     "senha":"123456"
 }
