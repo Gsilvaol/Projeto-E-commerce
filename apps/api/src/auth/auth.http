@@ -8,7 +8,7 @@ POST {{baseUrl}}/cadastro
 Content-Type: application/json
 
 {
-    "nome":"gustavo",
+    "nome":"g",
     "email":"gustavo13725@mail.com",
     "senha":"123456"
 }
