@@ -13,10 +13,6 @@ export class AuthPrisma {
     return usuario;
   }
 
-  async pegarTodos(){
-    return this.prisma.usuario.findMany()
-  }
-
   async pegarUsuarioPorEmail(email:string){
     const usuario = await this.prisma.usuario.findUnique({
         where:{email}

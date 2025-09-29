@@ -32,10 +32,6 @@ export class AuthService {
     return { mensagem: 'Usuário criado com sucesso' };
   }
 
-  async pegar() {
-    return this.authPrisma.pegarTodos();
-  }
-
   async login(infoLogin: InfoLogin) {
     const { email, senha } = ValidarDadosLogin(infoLogin);
 

@@ -14,6 +14,7 @@ Content-Type: application/json
 }
 
 ### Login
+# @name login
 
 POST {{baseUrl}}/login
 Content-Type: application/json
@@ -22,3 +23,4 @@ Content-Type: application/json
     "email":"g@mail.com",
     "senha":"123456"
 }
+
